@@ -1,0 +1,15 @@
+div.row-hover :hover {
+    border-bottom: 2px #ededed solid;
+}
+
+a {
+    color: #686868;
+}
+
+a :hover {
+    color: #868686;
+}
+
+a :visited {
+    color: #606060;
+}
