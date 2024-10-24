@@ -1,0 +1,17 @@
+[Flask]
+
+[app]
+host_name = "localhost"
+base_uri = "/"
+title = "The Granter of Wishes"
+description = "Make and share a wishlist with your friends and family!"
+is_ssl = true
+is_proxied = true
+session_key = "<generate random string here>"
+
+[email]
+from_address = "wishlist-no-reply@example.net"
+relay_server = "localhost"
+relay_port = 25
+user = ""
+password = ""
