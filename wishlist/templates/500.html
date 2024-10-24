@@ -1,0 +1,12 @@
+{% extends 'error_base.html' %}
+
+{% extends 'error_base.html' %}
+{% block error_code %}
+500:
+{% endblock %}
+
+{% block content %}
+<h1>Unexpected error</h1>
+<div><p>Wish I may,<br /> wish I might<br />I did not wish<br />this wish tonight</p></div>
+<div>{{ message }}</div>
+{% endblock %}

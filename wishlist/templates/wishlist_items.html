@@ -1,0 +1,25 @@
+<form>
+    <ol class="list-group">
+    {% for item in wishlist_items -%}
+        <li class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col"><a href="{{ item.url }}">{{ item.name }}</a>{% if item.description %} - {{ item.description }}{% endif %}</div>
+                {%- if not is_own %}
+                <div class="col-2 form-check form-switch">
+                    <div class="float-end">
+                    <input class="form-check-input" type="checkbox" role="switch" id="{{ item.id }}" onchange="mark_item(this)" {% if item.gotten == True %}checked{% endif %} {% if item.gotten and item.getter != session_id %}disabled{% endif %}>
+                    <label class="form-check-label" for="{{ item.id }}">I got this!</label>
+                    </div>
+                </div>
+                {% else -%}
+                <div class="col-2 text-end">
+                    <a id="{{ item.id }}" onclick="delete_item(this)">
+                        <img src="{{ base_uri }}/images/delete-circle-outline.svg" width="24" height="24" alt="Delete item {{ item.name }}" />
+                    </a>
+                </div>
+                {% endif -%}
+            </div>
+        </li>
+    {%- endfor %}
+    </ol>
+</form>

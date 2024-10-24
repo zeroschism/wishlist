@@ -1,0 +1,7 @@
+{% extends 'error_base.html' %}
+
+{% block error_code %}401: {% endblock %}
+
+{% block content %}
+<div class="p-2 border-start border-5 border-danger bd-danger" style="--bs-bg-opacity: .5">Your access token is invalid or missing.  If you copy-pasted the link from your email, did you get the whole url?</div>
+{% endblock %}

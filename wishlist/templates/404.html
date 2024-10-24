@@ -1,0 +1,12 @@
+{% extends 'error_base.html' %}
+{% block error_code %}
+404:
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <p>Oh, I wish I could find what you're looking for!</p>
+    <p>{{ message }}</p>
+</div>
+{% endblock %}

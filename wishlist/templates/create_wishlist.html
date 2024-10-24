@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<form onsubmit="create_wishlist(event)" id="addWishlist">
+<div class="mb-3">
+    <label for="name" class="form-label">Name your Wishlist</label>
+    <input type="text" class="form-control" id="name" name="name" />
+</div>
+<div class="mb-3">
+    <label for="username" class="form-label">Your name</span></label>
+    <input type="text" class="form-control" id="username" name="username" />
+</div>
+<div class="mb-3">
+    <label for="email" class="form-label">Your email address</label>
+    <input type="text" class="form-control" id="email" name="email" />
+</div>
+<div class="m-3">
+    <button type="submit" class="btn btn-primary">Create!</button>
+</form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ base_uri }}/js/wishlist.js"></script>
+{% endblock %}
+

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row mb-4 gx-2">
+    <div class="col pt-2 me-auto" id="wishlist_items">
+    {%- if wishlist_items %}
+        {% include 'wishlist_items.html' %}
+    {% else %}
+        <p class="p-2 text-danger-emphasis">Your wishlist is empty! Add some items below</p>
+    {% endif -%}
+    </div>
+        {%- if is_own == True %}
+        <div class="col-2 ms-3 border-start border-5 border-primary">
+            <div class="row mb-2">
+                <div class="col">Copy manage link:</div>
+                <div class="col-3">
+                    <a onclick="copy_link(own_url)" title="Copy manage link to clipboard">
+                        <img src="{{ base_uri }}/images/content-copy.svg" width="24" height="24" alt="Copy link to manage wishlist">
+                    </a>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">Share your wishlist:</div>
+                <div class="col-3">
+                    <a onclick="copy_link(share_url)" title="Copy share link to clipboard">
+                        <img src="{{ base_uri }}/images/content-copy.svg" width="24" height="24" alt="Copy share link"/>
+                    </a>
+                    <a data-bs-toggle="modal" data-bs-target="#share_email_modal" title="Email share link">
+                        <img src="{{ base_uri }}/images/email-outline.svg" width="24" height="24" alt="Share via Email"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif -%}
+    </div>
+    </div>
+</div>
+{%- if is_own == True %}{% include 'add_wishlist_form.html' %}{% endif %}
+{% endblock %}
+
+{% block modal %}
+<!-- Get email modal -->
+<div class="modal fade" id="share_email_modal" tabindex="-1" role="dialog" aria-labeledby="email_modal_label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="share_email_form" onsubmit="share_email(event)">
+            <div class="modal-header">
+                <h5 class="modal-title" id="email_modal_label">Enter email address to share</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="modal_msgbox" class="alert d-none"> </div>
+                <div>
+                    <label for="share_email_input">Email:</label> <input type="text" id="share_email_input" class="form-control" name="email" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Send Email</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+{% if is_own == True -%}
+    var own_url = "{{ self_url }}";
+    var share_url = "{{ share_url }}";
+{% endif -%}
+    var wishlist_id = "{{ wishlist_id }}";
+</script>
+<script type="text/javascript" src="{{ base_uri }}/js/wishlist.js"></script>
+{% endblock %}
