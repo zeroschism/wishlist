@@ -1,0 +1,5 @@
+Hello {{name}}!
+
+Thank you for creating a wishlist.  You can access your wishlist to add/remove items by accessing the url below.  Note that this URL is unique to you.  Anyone with this url can view AND modify your list.
+
+{{modify_url}}

@@ -1,0 +1,5 @@
+Hello!
+
+Your friend {{name}} has created a wishlist at https://www.jupiterslament.net/wishlist and wants to share it with you! To view {{name}}'s wishlist simply visit the url below.  You can mark items off the list that you get.
+
+{{share_url}}

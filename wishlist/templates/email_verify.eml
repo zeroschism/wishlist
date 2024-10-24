@@ -1,0 +1,5 @@
+{{ name }},
+
+Thank you for starting a new wishlist!  Please verify your email address is valid by clicking the link below or by copying and pasting into your browser.
+
+{{ validate_url }}
