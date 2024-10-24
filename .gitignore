@@ -1,0 +1,4 @@
+wishlist.sqlite3*
+config.toml
+__pycache__/
+*.pyc

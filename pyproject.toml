@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "wishlist"
+version = "0.5.0"
+description = "Store and share a wishlist with your friends and family"
+authors = ["Zero <zero@jupiterslament.net>"]
+package-mode = false
+license = "AGPL-3.0-or-later"
+
+[tool.poetry.dependencies]
+python = "^3.11.0"
+flask = "^2.3.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py311", "py312"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+
