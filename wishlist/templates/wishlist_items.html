@@ -3,7 +3,11 @@
     {% for item in wishlist_items -%}
         <li class="list-group-item list-group-item-action">
             <div class="row">
+                {%- if item.url %}
                 <div class="col"><a href="{{ item.url }}">{{ item.name }}</a>{% if item.description %} - {{ item.description }}{% endif %}</div>
+                {%- else %}
+                <div class="col">{{ item.name }}{% if item.description %} - {{ item.description }}{% endif %}</div>
+                {%- endif %}
                 {%- if not is_own %}
                 <div class="col-2 form-check form-switch">
                     <div class="float-end">

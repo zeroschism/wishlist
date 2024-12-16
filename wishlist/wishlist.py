@@ -112,11 +112,13 @@ class WishlistItem:
         else:
             raise MissingRequiredParameterError("Must supply an item name")
         
-        if url is not None:
+        if url is not None and len(url) > 0:
             try:
                 self.url = validator.normalize_url(url)
             except ValueError as v:
                 raise InvalidParameter(f"{v}")
+        else:
+            self.url = ""
     
         self.description = validator.normalize_words(description)
         self.gotten = gotten

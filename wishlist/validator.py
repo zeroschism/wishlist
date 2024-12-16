@@ -50,8 +50,11 @@ def is_valid_hostname(input: str) -> bool:
         return False
     
     # Strip the dot on the far right, if it exists
-    if input[-1] == ".":
-        input = input[:-1]
+    try:
+        if input[-1] == ".":
+            input = input[:-1]
+    except IndexError:
+        pass
 
     return all(valid_hostname.match(x) for x in input.split('.'))
 
@@ -79,6 +82,3 @@ def is_url(input: str) -> bool:
         return False
     
     return True
-    
-
-    
